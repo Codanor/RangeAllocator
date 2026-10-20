@@ -12,7 +12,7 @@ When a block is given back, it is **merged with its free neighbours right away**
 
 # Features
 
-## 🎯 Fit Strategies - Swappable
+## Fit Strategies - Swappable
 
 The tracker does not decide by itself which free block to use, it asks a request handler. <br>
 Two handlers are shipped:
@@ -22,14 +22,14 @@ Two handlers are shipped:
 
 You can write your own by extending `NodeRequestHandler` and implementing `findNode()`.
 
-## 🧩 Merging - Immediate and cheap
+## Merging - Immediate and cheap
 
 Every free block is registered by where it starts and where it ends. <br>
 When a block is given back, the tracker looks up whether a free block ends exactly where it starts,
 or starts exactly where it ends, and merges them into one. <br>
 Both lookups are hash map lookups, so merging does not need to search the tree.
 
-## 🛡️ Safe Give Back - Mistakes get ignored
+## Safe Give Back - Mistakes get ignored
 
 The tracker remembers every block it handed out together with its size. <br>
 Giving back a position that was never handed out, giving it back with the wrong size or giving it back twice does nothing,
